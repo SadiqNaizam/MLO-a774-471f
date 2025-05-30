@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -52,6 +53,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Sidebar specific colors using CSS variables
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -61,12 +63,21 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        // Explicit PRD colors for direct use if needed
+        accentBlue: '#299CDB',
+        accentYellow: '#FFC107',
+        accentGreen: '#28A745',
+        // Other PRD colors are mapped to semantic names above
 			},
+			fontFamily: {
+        sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+      },
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+        // These values are based on the CSS variable --radius (0.375rem by default)
+				lg: 'var(--radius)', // Becomes 0.375rem
+				md: 'calc(var(--radius) - 2px)', // Becomes 0.375rem - 2px
+				sm: 'calc(var(--radius) - 4px)' // Becomes 0.375rem - 4px
 			},
 			keyframes: {
 				'accordion-down': {
